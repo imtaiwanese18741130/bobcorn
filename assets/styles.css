@@ -72,6 +72,13 @@ h1 {
     color: white;
 }
 
+h2 {
+    color: #45422C;
+    text-align: center;
+    margin: 16px;
+    font-size: 1.8em;
+}
+
 h3 {
     font-size: 1em;
     margin: 16px 0;
@@ -83,7 +90,7 @@ h3 {
 button {
     padding: 15px;
     border: none;
-    border-radius: 10px;
+    border-radius: 50px;
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
@@ -127,28 +134,6 @@ button.secondary:hover {
 }
 
 
-
-
-
-
-
-
-
-.save-hint {
-    background-color: #fff176;
-    color: #000000;
-    margin-top: -75px;
-    padding-top: 65px;
-    padding-bottom: 12px;
-    font-size: 18px;
-    font-weight: 600;
-    z-index: 0;
-    width: 90%;
-    border-radius: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
 
 
