@@ -101,7 +101,7 @@ button {
 	transition: all 0.3s ease;
 	width: 100%;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
+	margin-bottom: 10px;
 }
 
 
@@ -341,7 +341,7 @@ Cloud Animation
 	display: flex;
 	flex-direction: column;
 	gap: 12px;
-	padding: 10%;
+	padding: 2%;
 }
 
 button.option {
