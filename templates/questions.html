@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="罷米花心理測驗問題頁：回答問題，發現你是哪種類型的罷米花！">
+	<title>罷米花心理測驗 - 問題</title>
+	<link rel="stylesheet" href="{{.BaseURL}}/assets/css/style.css?v1.0">
+</head>
+<body>
+	<main class="container">
+		<section class="main-content">
+			<div class="question-box q1">
+				<div class="progress-bar">
+					<div class="progress" style="width: 33.33%;"></div>
+				</div>
+				<h2>你最想看哪裡的<br>罷免戰況?</h2>
+				<div class="options-container">
+					<button type="button" class="option" onclick="selectQ1Option(1)"><span>[ 北北基 ]</span> 天龍之戰</button>
+					<button type="button" class="option" onclick="selectQ1Option(2)"><span>[ 桃竹苗 ]</span> 藍色大門</button>
+					<button type="button" class="option" onclick="selectQ1Option(3)"><span>[ 中彰投雲 ]</span> 角頭</button>
+					<button type="button" class="option" onclick="selectQ1Option(4)"><span>[ 花東離島 ]</span> 王與他們的產地</button>
+				</div>
+			</div>
+			<div class="question-box q2 hidden">
+				<div class="progress-bar">
+					<div class="progress" style="width: 66.66%;"></div>
+				</div>
+				<h2>罷免藍委<br>你覺得...</h2>
+				<div class="options-container">
+					<button type="button" class="option" onclick="selectQ2Option('support')"><span>支持！</span></button>
+					<button type="button" class="option" onclick="selectQ2Option('oppose')"><span>反對！</span></button>
+					<button type="button" class="option" onclick="selectQ2Option('havenoidea')"><span>嗯...觀望中</span></button>
+					<button type="button" class="option" onclick="selectQ2Option('havenoidea')"><span>虫合 我不知道發生什麼事</span></button>
+				</div>
+			</div>
+			<div class="question-box q-support hidden">
+				<div class="progress-bar">
+					<div class="progress" style="width: 100%;"></div>
+				</div>
+				<h2>你的支持方式最接近<br>哪一種？</h2>
+				<div class="options-container">
+					<button type="button" class="option" onclick="selectQ3Option('E')"><span>分享資訊、拉親朋好友一起來參加</span></button>
+					<button type="button" class="option" onclick="selectQ3Option('F')"><span>自己默默連署</span></button>
+					<button type="button" class="option" onclick="selectQ3Option('G')"><span>有人幫我寫好我就簽</span></button>
+					<button type="button" class="option" onclick="selectQ3Option('H')"><span>等我拖延症治好我就簽</span></button>
+				</div>
+			</div>
+			<div class="question-box q-oppose hidden">
+				<div class="progress-bar">
+					<div class="progress" style="width: 100%;"></div>
+				</div>
+				<h2>你的反對方式最接近<br>哪一種？</h2>
+				<div class="options-container">
+					<button type="button" class="option" onclick="selectQ3Option('B')"><span>默不作聲</span></button>
+					<button type="button" class="option" onclick="selectQ3Option('A')"><span>出聲反對罷免</span></button>
+				</div>
+			</div>
+			<div class="question-box q-havenoidea hidden">
+				<div class="progress-bar">
+					<div class="progress" style="width: 100%;"></div>
+				</div>
+				<h2>還沒有立場的你,<br>想法是？</h2>
+				<div class="options-container">
+					<button type="button" class="option" onclick="selectQ3Option('D')"><span>嗯...想多方考量再決定</span></button>
+					<button type="button" class="option" onclick="selectQ3Option('C')"><span>我還不知道發生什麼事</span></button>
+					<button type="button" class="option" onclick="selectQ3Option('C')"><span>覺得罷免跟我關係不大</span></button>
+					<button type="button" class="option" onclick="selectQ3Option('G')"><span>其實偏向支持，只是懶得寫連署</span></button>
+				</div>
+			</div>
+    </section>
+	</main>
+	<script>
+		'use strict';
+		const state = {
+			areaOption: null,
+			typeOption: null
+		};
+
+		function selectQ1Option(area) {
+			state.areaOption = area;
+			hideQuestionElem('.q1');
+			showQuestionElem('.q2');
+		}
+
+		function selectQ2Option(action) {
+			hideQuestionElem('.q2');
+			switch (action) {
+				case 'support':
+					showQuestionElem('.q-support');
+					break;
+				case 'oppose':
+					showQuestionElem('.q-oppose');
+					break;
+				case 'havenoidea':
+					showQuestionElem('.q-havenoidea');
+					break;
+			}
+		}
+
+		function selectQ3Option(type) {
+			state.typeOption = type;
+			hideQuestionElem('.q-support');
+			hideQuestionElem('.q-oppose');
+			hideQuestionElem('.q-havenoidea');
+
+			window.location.href = `{{.BaseURL}}/results/${state.areaOption}-${state.typeOption}`;
+		}
+
+		function hideQuestionElem(selector) {
+			const elem = document.querySelector(selector);
+			if (elem) {
+				elem.classList.add('hidden');
+			}
+		}
+		function showQuestionElem(selector) {
+			const elem = document.querySelector(selector);
+			if (elem) {
+				elem.classList.remove('hidden');
+			}
+		}
+	</script>
+</body>
+</html>
